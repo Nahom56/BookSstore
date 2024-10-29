@@ -25,10 +25,26 @@ public class Library {
     public void returnBook(Member member, Book book) {
 //        Set<Book> bookBorrowed = tracker.get(member);
 //        bookBorrowed.remove(book);
+        if (!tracker.containsKey(member)){
+            System.out.println("No Books Borrowed by " + member.getName());
+            return;
+        }
+        if(!tracker.get(member).contains(book)){
+            System.out.println(member.getName() + " is not borrowed " + book.getTitle());
+        }
         tracker.get(member).remove(book);
+        System.out.println(book.getTitle() + " is returned by " + member.getName());
     }
     public void listBooksBorrowed(Member member) {
+        if (!tracker.containsKey(member)){
+            System.out.println("No Books Borrowed by " + member.getName());
+            return;
+        }
         Set<Book> bookBorrowed = tracker.get(member);
+
+        if (bookBorrowed.isEmpty()){
+            System.out.println("No Books Borrowed by" + member.getName());
+        }
         System.out.println("Current List Borrowed: ");
         for (Book book : bookBorrowed){
             System.out.println(book);

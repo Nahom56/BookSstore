@@ -25,6 +25,12 @@ public class Main {
         library.borrowBook(memberOne, bookFour);
         library.listBooksBorrowed(memberOne);
 
+        library.listBooksBorrowed(memberThree);
+
+        library.borrowBook(memberThree, bookSix);
+        library.returnBook(memberThree, bookEight);
+
+        library.listBooksBorrowed(memberThree);
 
 
     }
